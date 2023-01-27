@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { Row, Col, Stack, Container, Card } from 'react-bootstrap'
-import { TypeAnimation } from 'react-type-animation';
+import { Row, Col, Stack, Container } from 'react-bootstrap'
 import { nanoid } from 'nanoid'
-import Message from './Message'
-import APIService from './APIService'
-import MessageBar from './MessageBar'
-import '../App.css'
+import APIService from '../services/APIService'
+import Message from '../components/Message'
+import MessageBar from '../components/MessageBar'
+import '../styles/App.css'
 
 export default function MainContent(props) {
 
@@ -35,7 +34,7 @@ export default function MainContent(props) {
                             { isSender: false, message: reply.text }
                         ])
                     }
-                    else if(reply.image) {
+                    else if (reply.image) {
                         setMessagesList(prevMessagesList => [
                             ...prevMessagesList,
                             { isSender: false, message: reply.image }
@@ -64,15 +63,6 @@ export default function MainContent(props) {
     useEffect(() => {
         scrollToBottom()
     }, [messagesList]);
-
-
-    const welcomeElement =
-        <Card body className='mb-3 shadow-sm bg-light-blur'>
-            <TypeAnimation
-                sequence={["Hello, I'm a chatbot. Ask me anything."]}
-                cursor={false}
-            />
-        </Card>
 
 
     return (

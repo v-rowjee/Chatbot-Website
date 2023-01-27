@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import NavBar from './components/NavBar'
-import Chat from './components/Chat'
-import Home from './components/Home'
-import NotFound from './components/NotFound'
-import './App.css'
+import NavBar from './components/Navigation'
+import Chat from './pages/Chat'
+import Home from './pages/Home'
+import NotFound from './pages/NotFound'
+import './styles/App.css'
 
 function App() {
 

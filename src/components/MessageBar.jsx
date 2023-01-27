@@ -1,5 +1,5 @@
 import { Row, Col, Form, Stack, Button } from 'react-bootstrap'
-import '../App.css'
+import '../styles/App.css'
 
 export default function MessageBar(props) {
 

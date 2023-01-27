@@ -1,0 +1,47 @@
+@import url(./theme.css);
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+    scroll-padding-top: 60px;
+}
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: .45rem;
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgba(27, 27, 27, .4);
+    border-radius: 3px;
+}
+::-webkit-scrollbar-track{
+    background: transparent;
+}
+
+@media only screen and (min-width: 768px) {
+    .navbar{
+        /* max-height: 60px; */
+    }
+}
+
+.App{
+    min-height: 100vh;
+    background: url(../assets/background.png) center top no-repeat fixed;
+}
+
+.chat{
+    max-height: calc(100vh - 200px);
+    overflow-y: scroll;
+}
+
+.section{
+    height: calc(100vh - 80px);
+}
+
+.form-control:focus,
+.form-control:active{
+    box-shadow:none !important;
+}
