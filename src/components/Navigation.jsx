@@ -3,7 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { FaSun, FaMoon } from 'react-icons/fa'
 
-export default function NavBar(props) {
+export default function Navigation(props) {
 
   function toggleDarkMode() {
     props.setDarkMode(!props.darkMode)
