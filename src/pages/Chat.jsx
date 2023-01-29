@@ -12,6 +12,7 @@ export default function MainContent(props) {
 
     const [messagesList, setMessagesList] = useState([{ isSender: false, message: initMessage }])
     const [message, setMessage] = useState('')
+    const [typing, setTyping] = useState(false);
 
     function addMessage(event) {
         event.preventDefault()
@@ -44,17 +45,28 @@ export default function MainContent(props) {
             })
             .catch(error => console.log('error', error))
 
+        setTyping(true);
         setMessage('')
     }
 
-    const messagesElements = messagesList.map(
-        msg => <Message
-            key={nanoid()}
-            message={msg.message}
-            isSender={msg.isSender}
-            darkMode={props.darkMode}
-        />
-    )
+    const messagesElements = messagesList.map((msg, index) => {
+        return index === messagesList.length - 1 && typing
+            ? <Message
+                key={index}
+                message={msg.message}
+                isSender={msg.isSender}
+                isTyping={true}
+                darkMode={props.darkMode}
+            />
+            : <Message
+                key={index}
+                message={msg.message}
+                isSender={msg.isSender}
+                isTyping={false}
+                darkMode={props.darkMode}
+            />
+
+    })
 
 
     const messagesEndRef = useRef(null)

@@ -1,4 +1,5 @@
 import { Card } from "react-bootstrap";
+import { TypeAnimation } from "react-type-animation";
 import '../styles/App.css'
 
 export default function Message(props) {
@@ -10,9 +11,17 @@ export default function Message(props) {
     else
         styles = 'mb-3 shadow-sm bg-blue-blur text-light'
 
+
     return (
         <Card body className={styles}>
-            {props.message}
+            {props.isTyping
+                ? <TypeAnimation
+                    sequence={[props.message]}
+                    cursor={true}
+                />
+                : props.message
+            }
+
         </Card>
     )
 }
