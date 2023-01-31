@@ -18,10 +18,10 @@ export default function Message(props) {
                 ? <TypeAnimation
                     sequence={[props.message]}
                     cursor={true}
+                    speed={50}
                 />
                 : props.message
             }
-
         </Card>
     )
 }

@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Row, Col, Stack, Container } from 'react-bootstrap'
-import { nanoid } from 'nanoid'
 import APIService from '../services/APIService'
 import Message from '../components/Message'
 import MessageBar from '../components/MessageBar'
@@ -27,25 +26,44 @@ export default function MainContent(props) {
 
         APIService.sendRequest({ message })
             .then(response => {
-                response.forEach(reply => {
-                    // check if there is a json key value equal to text
+                let index = 0
+                let delay = 1000
+
+                const displayNextReply = () => {
+                    if (index === response.length) {
+                        return;
+                    }
+
+                    const reply = response[index];
+                    setTyping(true);
+
                     if (reply.text) {
                         setMessagesList(prevMessagesList => [
                             ...prevMessagesList,
                             { isSender: false, message: reply.text }
-                        ])
-                    }
-                    else if (reply.image) {
+                        ]);
+                        delay = reply.text.length * 50
+
+                    } else if (reply.image) {
                         setMessagesList(prevMessagesList => [
                             ...prevMessagesList,
                             { isSender: false, message: reply.image }
-                        ])
+                        ]);
+                        delay = reply.image.length * 50
                     }
-                })
-            })
-            .catch(error => console.log('error', error))
 
-        setTyping(true);
+                    setTimeout(() => {
+                        setTyping(false);
+                        index++;
+                        displayNextReply();
+                    }, delay);
+                };
+
+                displayNextReply();
+            })
+            .catch(error => console.log('error', error));
+
+
         setMessage('')
     }
 

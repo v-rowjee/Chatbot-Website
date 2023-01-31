@@ -1,4 +1,5 @@
 import { Container, Row, Col, Button } from "react-bootstrap"
+import { TypeAnimation } from "react-type-animation";
 import chatbot from "../assets/chatbot.svg"
 import { ReactComponent as Wave } from '../assets/wave.svg';
 
@@ -9,7 +10,11 @@ export default function Home() {
                 <Row className="align-items-center g-5">
                     <Col sm={12} md={6} className="text-center text-lg-start">
                         <h2 className="display-5 fw-bold me-lg-5">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            <TypeAnimation
+                                sequence={["Good nutrition is an important part of leading a healthy lifestyle."]}
+                                speed={50}
+                                cursor={false}
+                            />
                         </h2>
                         <Button size="lg" variant="primary" href="/Chat" className="mt-4 px-5">Try For Free Now</Button>
                     </Col>
