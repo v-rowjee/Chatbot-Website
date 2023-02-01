@@ -22,7 +22,9 @@ export default function MessageBar(props) {
                             onChange={hangleChange}
                             name='message'
                         />
-                        <Button variant='primary' type="submit">Send</Button>
+                        <Button variant='primary' disabled={props.isDisabled} type="submit">
+                            Send
+                        </Button>
                     </Stack>
                 </Form>
             </Col>

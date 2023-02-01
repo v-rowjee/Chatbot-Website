@@ -7,12 +7,12 @@ export default function Home() {
     return (
         <>
             <Container className="mt-5">
-                <Row className="align-items-center g-5">
+                <Row className="align-items-center">
                     <Col sm={12} md={6} className="text-center text-lg-start">
                         <h2 className="display-5 fw-bold me-lg-5">
                             <TypeAnimation
                                 sequence={["Good nutrition is an important part of leading a healthy lifestyle."]}
-                                speed={50}
+                                speed={60}
                                 cursor={false}
                             />
                         </h2>

@@ -17,7 +17,7 @@ export default function MainContent(props) {
         event.preventDefault()
         const message = event.target.message.value
 
-        if (message === '') return
+        if (message === '' || typing) return
 
         setMessagesList(prevMessagesList => [
             ...prevMessagesList,
@@ -61,7 +61,13 @@ export default function MainContent(props) {
 
                 displayNextReply();
             })
-            .catch(error => console.log('error', error));
+            .catch(error => {
+                console.log('Error', error)
+                setMessagesList(prevMessagesList => [
+                    ...prevMessagesList,
+                    { isSender: false, message: "There was an error fetching data from the API. Try again later." }
+                ]);
+            });
 
 
         setMessage('')
@@ -109,6 +115,7 @@ export default function MainContent(props) {
                 handleSubmit={addMessage}
                 message={message}
                 setMessage={setMessage}
+                isDisabled={typing}
                 darkMode={props.darkMode}
             />
         </Container>
