@@ -1,6 +1,7 @@
 .bg-nav-blur{
-    background: rgba(134, 182, 254,0.2);
-    backdrop-filter: blur(7px);
+    background: rgba(134, 182, 254,0.3);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(164, 200, 254, 0.5);
 }
 .bg-dark-nav-blur{
     background: rgba(2, 22, 50,0.2);
@@ -25,4 +26,8 @@
     background: linear-gradient(to right,rgba(61, 139, 253,1), rgba(13,110,253,0.8));
     backdrop-filter: blur(5px);
     transition: all 0.5s ease-in-out;
+}
+
+.bg-blue-custom{
+    background: #0099ff;
 }
