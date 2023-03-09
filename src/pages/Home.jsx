@@ -58,8 +58,8 @@ export default function Home() {
                 title="Customised Workout Plans"
                 text="The bot will help you with your diet by providing you with a meal plan and recipes. It will also help you with your fitness by providing you with a workout plan and exercises."
             />
-            <HomeSection 
-                img={bot_6} 
+            <HomeSection
+                img={bot_6}
                 reverse={false}
                 title="Customised Meal Plans"
                 text="The bot will help you with your diet by providing you with a meal plan and recipes. It will also help you with your fitness by providing you with a workout plan and exercises."
@@ -72,10 +72,20 @@ export default function Home() {
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos debitis a, temporibus itaque aperiam earum necessitatibus maxime quibusdam magnam, repudiandae cumque voluptate, veritatis iure culpa!</p>
                     </Col>
                 </Row>
-                <Row className="h-100 justify-content-around">
-                    <HomeCard icon={<FaGlobe size={30} />} title="Website" text="Lorem ipsum dolor sit amet consectetur adipisicing elit." />
-                    <HomeCard icon={<FaCommentDots size={30} />} title="Chat" text="Lorem ipsum dolor sit amet consectetur adipisicing elit." />
-                    <HomeCard icon={<FaMobile size={30} />} title="Mobile" text="Lorem ipsum dolor sit amet consectetur adipisicing elit." />
+                <Row className="justify-content-around">
+                    <HomeCard
+                        icon={<FaGlobe size={30} />}
+                        title="Website"
+                        text="Lorem ipsum dolor sit amet consectetur adipisicing elit."
+                        link="/chat"
+                    />
+                    {/* <HomeCard icon={<FaCommentDots size={30} />} title="Chat" text="Lorem ipsum dolor sit amet consectetur adipisicing elit." /> */}
+                    <HomeCard 
+                        icon={<FaMobile size={30} />} 
+                        title="Mobile" 
+                        text="Lorem ipsum dolor sit amet consectetur adipisicing elit."
+                        link="/download"
+                    />
                 </Row>
             </Container>
         </>
