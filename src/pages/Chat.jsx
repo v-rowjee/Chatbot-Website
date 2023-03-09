@@ -12,17 +12,20 @@ export default function MainContent(props) {
     const [messagesList, setMessagesList] = useState([{ isSender: false, message: initMessage }])
     const [message, setMessage] = useState('')
     const [typing, setTyping] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     function addMessage(event) {
         event.preventDefault()
         const message = event.target.message.value
 
-        if (message === '' || typing) return
+        if (message === '' || typing || loading) return
 
         setMessagesList(prevMessagesList => [
             ...prevMessagesList,
             { isSender: true, message }
         ])
+
+        setLoading(true)
 
         APIService.sendRequest({ message })
             .then(response => {
@@ -53,13 +56,14 @@ export default function MainContent(props) {
                     }
 
                     setTimeout(() => {
-                        setTyping(false);
-                        index++;
-                        displayNextReply();
-                    }, delay);
+                        setTyping(false)
+                        index++
+                        displayNextReply()
+                    }, delay)
                 };
 
-                displayNextReply();
+                displayNextReply()
+                setLoading(false)
             })
             .catch(error => {
                 console.log('Error', error)
@@ -69,26 +73,19 @@ export default function MainContent(props) {
                 ]);
             });
 
-
         setMessage('')
     }
 
     const messagesElements = messagesList.map((msg, index) => {
-        return index === messagesList.length - 1 && typing
-            ? <Message
+        return (
+            <Message
                 key={index}
                 message={msg.message}
                 isSender={msg.isSender}
-                isTyping={true}
+                isTyping={index === messagesList.length - 1 && typing}
                 darkMode={props.darkMode}
             />
-            : <Message
-                key={index}
-                message={msg.message}
-                isSender={msg.isSender}
-                isTyping={false}
-                darkMode={props.darkMode}
-            />
+        )
 
     })
 
@@ -112,10 +109,10 @@ export default function MainContent(props) {
                 </Col>
             </Row>
             <MessageBar
-                handleSubmit={addMessage}
+                handleSubmit={(e) => addMessage(e)}
                 message={message}
                 setMessage={setMessage}
-                isDisabled={typing}
+                isDisabled={typing || loading}
                 darkMode={props.darkMode}
             />
         </Container>

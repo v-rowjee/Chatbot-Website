@@ -23,7 +23,7 @@ export default function MessageBar(props) {
                             name='message'
                         />
                         <Button variant='primary' disabled={props.isDisabled} type="submit">
-                            Send
+                            {props.isDisabled ? '...' : 'Send'}
                         </Button>
                     </Stack>
                 </Form>
