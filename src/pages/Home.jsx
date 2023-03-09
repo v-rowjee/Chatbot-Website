@@ -1,11 +1,11 @@
 import { Container, Row, Col, Button, Image } from "react-bootstrap"
 import { TypeAnimation } from "react-type-animation";
 import HomeSection from "../components/HomeSection";
-
+import HomeCard from "../components/HomeCard";
 import { ReactComponent as Wave1 } from '../assets/wave1.svg';
 import { ReactComponent as Wave2 } from '../assets/wave2.svg';
 import { FaGlobe } from 'react-icons/fa';
-import { FaCommentDots } from 'react-icons/fa';
+import { FaFacebookMessenger } from 'react-icons/fa';
 import { FaMobile } from 'react-icons/fa';
 import bot_1 from "../assets/bots/1.png"
 import bot_2 from "../assets/bots/2.png"
@@ -19,7 +19,7 @@ import bot_9 from "../assets/bots/9.png"
 import bot_10 from "../assets/bots/10.png"
 import bot_11 from "../assets/bots/11.png"
 import bot_12 from "../assets/bots/12.png"
-import HomeCard from "../components/HomeCard";
+
 
 export default function Home() {
     return (
@@ -69,20 +69,25 @@ export default function Home() {
                 <Row className="text-center justify-content-center mb-5">
                     <Col sm={8}>
                         <h2 className="text-bold my-4">Stay Connected on All Channels</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos debitis a, temporibus itaque aperiam earum necessitatibus maxime quibusdam magnam, repudiandae cumque voluptate, veritatis iure culpa!</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos debitis a.</p>
                     </Col>
                 </Row>
                 <Row className="justify-content-around">
                     <HomeCard
                         icon={<FaGlobe size={30} />}
-                        title="Website"
+                        title="Website Chat"
                         text="Lorem ipsum dolor sit amet consectetur adipisicing elit."
                         link="/chat"
                     />
-                    {/* <HomeCard icon={<FaCommentDots size={30} />} title="Chat" text="Lorem ipsum dolor sit amet consectetur adipisicing elit." /> */}
+                    <HomeCard 
+                        icon={<FaFacebookMessenger size={30} />} 
+                        title="Facebook Messenger"
+                        text="Soon avilable on Messenger, Telegram, WhatsApp, and more!"
+                        link="https://www.facebook.com"  
+                    />
                     <HomeCard 
                         icon={<FaMobile size={30} />} 
-                        title="Mobile" 
+                        title="Mobile Playstore" 
                         text="Lorem ipsum dolor sit amet consectetur adipisicing elit."
                         link="/download"
                     />

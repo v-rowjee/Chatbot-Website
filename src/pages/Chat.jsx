@@ -78,7 +78,8 @@ export default function MainContent(props) {
                     ...prevMessagesList,
                     { isSender: false, message: "There was an error fetching data from the API. Try again later." }
                 ]);
-            });
+                setLoading(false)
+            })
 
         setMessage('')
     }
@@ -107,7 +108,7 @@ export default function MainContent(props) {
 
     return (
         <Container className='section'>
-            <Row className='justify-content-center w-100 h-100 m-0 mt-4 chat'>
+            <Row className='justify-content-center h-100 chat'>
                 <Col xs='11' md='6'>
                     <Stack>
                         {messagesElements}

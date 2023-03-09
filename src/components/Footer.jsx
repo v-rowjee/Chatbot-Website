@@ -1,4 +1,5 @@
 import { Container, Row, Col } from 'react-bootstrap';
+import { ReactComponent as Wave3 } from '../assets/wave3.svg';
 
 export default function Footer(props) {
 
@@ -6,14 +7,14 @@ export default function Footer(props) {
         return (<></>)
     else
         return (
-            <footer style={{marginTop: '3rem'}}>
-                <Container fluid className="bg-dark text-light text-center py-3">
-                    <Row>
-                        <Col>
-                            <p className='text-center m-0'>© 2023 FYP. All Rights Reserved.</p>
-                        </Col>
-                    </Row>
-                </Container>
-            </footer>
+            <>
+                <Wave3 />
+
+                <footer className="bg-white pb-3">
+                    <Container fluid className="pb-3">
+                        <p className='float-md-end text-dark m-0'>© 2023 FYP. All Rights Reserved.</p>
+                    </Container>
+                </footer>
+            </>
         )
 }

@@ -15,7 +15,7 @@ export default function HomeSection(props) {
             <div className="ms-md-5">
               <h2 className="display-4 mb-4 fw-bold">{props.title}</h2>
               <p className="mb-4">{props.text}</p>
-              <Button variant="light">Learn More</Button>
+              <Button variant="light">Learn More &gt;</Button>
             </div>
           </Col>
           <Col

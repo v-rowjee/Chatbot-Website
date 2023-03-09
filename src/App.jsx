@@ -10,7 +10,7 @@ import './styles/App.css'
 function App() {
 
   const location = useLocation();
-  const hideFooter = location.pathname === '/chat';
+  const hideFooter = location.pathname.toLowerCase() === '/chat';
 
   const [darkMode, setDarkMode] = useState(false)
 

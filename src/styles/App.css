@@ -23,12 +23,6 @@ html{
     background: transparent;
 }
 
-/* @media only screen and (min-width: 768px) {
-    .navbar{
-        max-height: 60px;
-    }
-} */
-
 .App{
     min-height: 100vh;
     background: url(../assets/background.png) center top no-repeat fixed;
