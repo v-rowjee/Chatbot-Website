@@ -14,13 +14,8 @@ export default function HomeSection(props) {
             className="text-center text-lg-start"
           >
             <div className="ms-md-5">
-              <h2 className="display-4 mb-4">Section Title</h2>
-              <p className="mb-4">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                gravida eros sit amet convallis vestibulum. Nullam ultrices,
-                libero ut auctor scelerisque, nibh leo faucibus elit, non varius
-                sapien nulla ac ipsum.
-              </p>
+              <h2 className="display-4 mb-4 fw-bold">{props.title}</h2>
+              <p className="mb-4">{props.text}</p>
               <Button variant="light">Learn More</Button>
             </div>
           </Col>

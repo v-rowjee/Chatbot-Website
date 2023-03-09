@@ -46,9 +46,24 @@ export default function Home() {
                 </Row>
             </Container>
             <Wave1 />
-            <HomeSection img={bot_4} reverse={false}/>
-            <HomeSection img={bot_3} reverse={true}/>
-            <HomeSection img={bot_6} reverse={false}/>
+            <HomeSection
+                img={bot_4}
+                reverse={false}
+                title="Customised Meal Plans"
+                text="The bot will help you with your diet by providing you with a meal plan and recipes. It will also help you with your fitness by providing you with a workout plan and exercises."
+            />
+            <HomeSection
+                img={bot_3}
+                reverse={true}
+                title="Customised Workout Plans"
+                text="The bot will help you with your diet by providing you with a meal plan and recipes. It will also help you with your fitness by providing you with a workout plan and exercises."
+            />
+            <HomeSection 
+                img={bot_6} 
+                reverse={false}
+                title="Customised Meal Plans"
+                text="The bot will help you with your diet by providing you with a meal plan and recipes. It will also help you with your fitness by providing you with a workout plan and exercises."
+            />
             <Wave2 />
             <Container>
                 <Row className="text-center justify-content-center mb-5">
@@ -58,9 +73,9 @@ export default function Home() {
                     </Col>
                 </Row>
                 <Row className="h-100 justify-content-around">
-                    <HomeCard icon={<FaGlobe size={30}/>} title="Website" text="Lorem ipsum dolor sit amet consectetur adipisicing elit." />
-                    <HomeCard icon={<FaCommentDots size={30}/>} title="Chat" text="Lorem ipsum dolor sit amet consectetur adipisicing elit." />
-                    <HomeCard icon={<FaMobile/>} title="Mobile" text="Lorem ipsum dolor sit amet consectetur adipisicing elit." />
+                    <HomeCard icon={<FaGlobe size={30} />} title="Website" text="Lorem ipsum dolor sit amet consectetur adipisicing elit." />
+                    <HomeCard icon={<FaCommentDots size={30} />} title="Chat" text="Lorem ipsum dolor sit amet consectetur adipisicing elit." />
+                    <HomeCard icon={<FaMobile size={30} />} title="Mobile" text="Lorem ipsum dolor sit amet consectetur adipisicing elit." />
                 </Row>
             </Container>
         </>

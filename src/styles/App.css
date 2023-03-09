@@ -40,7 +40,7 @@ html{
 }
 
 .section{
-    height: calc(100vh - 80px);
+    height: calc(100vh - 81px);
 }
 
 .form-control:focus,
