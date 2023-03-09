@@ -7,12 +7,19 @@ import '../styles/App.css'
 
 export default function MainContent(props) {
 
-    const initMessage = 'Hello, I\'m a chatbot. Ask me anything.'
-
-    const [messagesList, setMessagesList] = useState([{ isSender: false, message: initMessage }])
+    const [messagesList, setMessagesList] = useState(() => {
+        const savedList = localStorage.getItem('messagesList')
+        return savedList !== null
+            ? JSON.parse(savedList)
+            : [{ isSender: false, message: 'Hello, I\'m a chatbot. Ask me anything.' }]
+    })
     const [message, setMessage] = useState('')
     const [typing, setTyping] = useState(false);
     const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        localStorage.setItem('messagesList', JSON.stringify(messagesList));
+      }, [messagesList]);
 
     function addMessage(event) {
         event.preventDefault()
