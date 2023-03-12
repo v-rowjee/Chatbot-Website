@@ -19,7 +19,7 @@ export default function MainContent(props) {
 
     useEffect(() => {
         localStorage.setItem('messagesList', JSON.stringify(messagesList));
-      }, [messagesList]);
+    }, [messagesList]);
 
     function addMessage(event) {
         event.preventDefault()
@@ -99,30 +99,30 @@ export default function MainContent(props) {
 
 
     const messagesEndRef = useRef(null)
-    const scrollToBottom = () =>
-        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
-    useEffect(() => {
-        scrollToBottom()
-    }, [messagesList]);
+    const scrollToBottom = () => messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+    useEffect(() => scrollToBottom(), [messagesList]);
 
 
     return (
-        <Container className='section'>
-            <Row className='justify-content-center h-100 chat'>
-                <Col xs='11' md='6'>
-                    <Stack>
-                        {messagesElements}
-                        <div ref={messagesEndRef} />
-                    </Stack>
-                </Col>
-            </Row>
-            <MessageBar
-                handleSubmit={(e) => addMessage(e)}
-                message={message}
-                setMessage={setMessage}
-                isDisabled={typing || loading}
-                darkMode={props.darkMode}
-            />
-        </Container>
+        <>
+            <div className='p-nav'></div>
+            <Container className='section'>
+                <Row className='justify-content-center h-100 chat'>
+                    <Col xs='11' md='6'>
+                        <Stack>
+                            {messagesElements}
+                            <div ref={messagesEndRef} />
+                        </Stack>
+                    </Col>
+                </Row>
+                <MessageBar
+                    handleSubmit={addMessage}
+                    message={message}
+                    setMessage={setMessage}
+                    isDisabled={typing || loading}
+                    darkMode={props.darkMode}
+                />
+            </Container>
+        </>
     )
 }

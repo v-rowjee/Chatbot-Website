@@ -29,12 +29,16 @@ html{
 }
 
 .chat{
-    max-height: calc(100vh - 200px);
+    max-height: calc(100vh - 81px - 87px);
     overflow-y: scroll;
 }
 
 .section{
     height: calc(100vh - 81px);
+}
+
+.p-nav{
+    padding-top: 66px;
 }
 
 .form-control:focus,

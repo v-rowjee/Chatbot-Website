@@ -10,6 +10,13 @@ export default function HomeSection(props) {
           <Col
             xs={12}
             md={6}
+            className="justify-content-center"
+          >
+            <Image src={props.img} fluid />
+          </Col>
+          <Col
+            xs={12}
+            md={6}
             className="text-center text-lg-start"
           >
             <div className="ms-md-5">
@@ -17,13 +24,6 @@ export default function HomeSection(props) {
               <p className="mb-4">{props.text}</p>
               <Button variant="light">Learn More &gt;</Button>
             </div>
-          </Col>
-          <Col
-            xs={12}
-            md={6}
-            className="justify-content-center"
-          >
-            <Image src={props.img} fluid />
           </Col>
         </Row>
       </Container>

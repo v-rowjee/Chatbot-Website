@@ -24,7 +24,7 @@ import bot_12 from "../assets/bots/12.png"
 export default function Home() {
     return (
         <>
-            <Container>
+            <Container className="pt-4">
                 <Row className="align-items-center">
                     <Col sm={12} md={6} className="text-center text-md-start p-5 p-md-0 ps-md-5">
                         <h2 className="display-5 fw-bold me-lg-5">
