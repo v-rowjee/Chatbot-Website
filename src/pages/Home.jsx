@@ -80,15 +80,15 @@ export default function Home() {
                         text="Lorem ipsum dolor sit amet consectetur adipisicing elit."
                         link="/chat"
                     />
-                    <HomeCard 
-                        icon={<FaFacebookMessenger size={30} />} 
+                    <HomeCard
+                        icon={<FaFacebookMessenger size={30} />}
                         title="Facebook Messenger"
                         text="Soon avilable on Messenger, Telegram, WhatsApp, and more!"
-                        link="https://www.facebook.com"  
+                        link="https://www.facebook.com"
                     />
-                    <HomeCard 
-                        icon={<FaMobile size={30} />} 
-                        title="Mobile Playstore" 
+                    <HomeCard
+                        icon={<FaMobile size={30} />}
+                        title="Mobile Playstore"
                         text="Lorem ipsum dolor sit amet consectetur adipisicing elit."
                         link="/download"
                     />

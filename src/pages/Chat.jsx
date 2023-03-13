@@ -4,6 +4,12 @@ import APIService from '../services/APIService'
 import Message from '../components/Message'
 import MessageBar from '../components/MessageBar'
 import '../styles/App.css'
+import bot_7 from "../assets/bots/7.png"
+import bot_8 from "../assets/bots/8.png"
+import bot_9 from "../assets/bots/9.png"
+import bot_10 from "../assets/bots/10.png"
+import bot_11 from "../assets/bots/11.png"
+import bot_12 from "../assets/bots/12.png"
 
 export default function MainContent(props) {
 
@@ -106,6 +112,8 @@ export default function MainContent(props) {
     return (
         <>
             <div className='p-nav'></div>
+            <Image fluid src={bot_11} className="d-none d-lg-block position-absolute bottom-0 top-0 end-0 h-100 blur-1" />
+            <Image fluid src={bot_12} className="d-none d-lg-block position-absolute bottom-0 top-0 h-100 blur-2" />
             <Container className='section'>
                 <Row className='justify-content-center h-100 chat'>
                     <Col xs='11' md='6'>
