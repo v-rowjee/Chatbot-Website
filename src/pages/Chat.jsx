@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { Row, Col, Stack, Container } from 'react-bootstrap'
+import { Row, Col, Stack, Container, Image } from 'react-bootstrap'
 import APIService from '../services/APIService'
 import Message from '../components/Message'
 import MessageBar from '../components/MessageBar'
