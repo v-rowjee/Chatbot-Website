@@ -41,16 +41,6 @@ html{
     padding-top: 66px;
 }
 
-.blur-1{
-    filter: blur(3px);
-    opacity: 0.3;
-}
-.blur-2{
-    filter: blur(5px);
-    opacity: 0.3;
-}
-
-
 .form-control:focus,
 .form-control:active{
     box-shadow:none !important;

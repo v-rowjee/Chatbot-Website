@@ -112,11 +112,9 @@ export default function MainContent(props) {
     return (
         <>
             <div className='p-nav'></div>
-            <Image fluid src={bot_11} className="d-none d-lg-block position-absolute bottom-0 top-0 end-0 h-100 blur-1" />
-            <Image fluid src={bot_12} className="d-none d-lg-block position-absolute bottom-0 top-0 h-100 blur-2" />
             <Container className='section'>
                 <Row className='justify-content-center h-100 chat'>
-                    <Col xs='11' md='6'>
+                    <Col xs='11' lg='7'>
                         <Stack>
                             {messagesElements}
                             <div ref={messagesEndRef} />
