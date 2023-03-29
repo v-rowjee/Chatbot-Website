@@ -8,17 +8,10 @@ import { FaGlobe } from 'react-icons/fa';
 import { FaFacebookMessenger } from 'react-icons/fa';
 import { FaMobile } from 'react-icons/fa';
 import bot_1 from "../assets/bots/1.png"
-import bot_2 from "../assets/bots/2.png"
 import bot_3 from "../assets/bots/3.png"
 import bot_4 from "../assets/bots/4.png"
-import bot_5 from "../assets/bots/5.png"
 import bot_6 from "../assets/bots/6.png"
-import bot_7 from "../assets/bots/7.png"
-import bot_8 from "../assets/bots/8.png"
-import bot_9 from "../assets/bots/9.png"
-import bot_10 from "../assets/bots/10.png"
-import bot_11 from "../assets/bots/11.png"
-import bot_12 from "../assets/bots/12.png"
+
 
 
 export default function Home() {
@@ -28,13 +21,13 @@ export default function Home() {
             <Container>
                 <Row className="align-items-center justify-self-center">
                     <Col sm={12} md={6} className="text-center text-md-start p-5 p-md-0 ps-md-5">
-                        <h2 className="display-5 fw-bold me-lg-5">
+                        <h1 className="display-5 fw-bold me-lg-5">
                             <TypeAnimation
                                 sequence={["Hi, I'm DietBot! How can I help you today?"]}
                                 speed={60}
                                 cursor={false}
                             />
-                        </h2>
+                        </h1>
                         <Button size="lg" variant="primary" href="/Chat" className="my-5 mb-md-0 px-5">Try For Free Now</Button>
                     </Col>
                     <Col sm={12} md={6} className="text-center">
@@ -69,8 +62,8 @@ export default function Home() {
             <Container>
                 <Row className="text-center justify-content-center mb-5">
                     <Col sm={8}>
-                        <h2 className="text-bold my-4">Stay Connected on All Channels</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos debitis a.</p>
+                        <h3 className="text-bold my-4">Stay Connected on All Channels</h3>
+                        <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos debitis a.</h5>
                     </Col>
                 </Row>
                 <Row className="justify-content-around">

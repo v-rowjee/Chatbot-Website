@@ -20,12 +20,16 @@ html{
     border-radius: 3px;
 }
 ::-webkit-scrollbar-track{
+    background: var(--background);
+}
+.chat::-webkit-scrollbar-track{
     background: transparent;
 }
 
 .App{
     min-height: 100vh;
     background: url(../assets/background.png) center top no-repeat fixed;
+    background-color: var(--background);
 }
 
 .chat{

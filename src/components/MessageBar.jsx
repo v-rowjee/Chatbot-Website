@@ -9,14 +9,14 @@ export default function MessageBar(props) {
 
     return (
         <Row className='sticky-bottom justify-content-center w-100 text-center m-0 py-3'>
-            <Col xs='11' lg='7' className={props.darkMode ? 'bg-dark rounded p-3 shadow-lg' : 'bg-light rounded p-3 shadow-lg'}>
+            <Col xs='11' lg='7' className='bg-neutral-color rounded p-3 shadow-lg'>
                 <Form onSubmit={props.handleSubmit}>
                     <Stack direction="horizontal" gap={3}>
                         <Form.Control
                             autoComplete='off'
                             autoFocus
                             type='text'
-                            className={props.darkMode ? 'bg-transparent border-0 text-light' : 'bg-transparent border-0'}
+                            className='bg-transparent border-0 text-light'
                             placeholder='Enter your message here...'
                             value={props.message}
                             onChange={hangleChange}

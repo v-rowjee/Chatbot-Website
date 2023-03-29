@@ -4,33 +4,31 @@ import APIService from '../services/APIService'
 import Message from '../components/Message'
 import MessageBar from '../components/MessageBar'
 import '../styles/App.css'
-import bot_7 from "../assets/bots/7.png"
-import bot_8 from "../assets/bots/8.png"
-import bot_9 from "../assets/bots/9.png"
-import bot_10 from "../assets/bots/10.png"
-import bot_11 from "../assets/bots/11.png"
-import bot_12 from "../assets/bots/12.png"
 
-export default function MainContent(props) {
+export default function Chat(props) {
 
     const [messagesList, setMessagesList] = useState(() => {
         const savedList = localStorage.getItem('messagesList')
         return savedList !== null
             ? JSON.parse(savedList)
-            : [{ isSender: false, message: 'Hello, I\'m a chatbot. Ask me anything.' }]
+            : [{ isSender: false, buttons: [{ title: 'Test', payload: '/ask_bmi' }], message: 'Hello, I\'m a chatbot. Ask me anything.' }]
     })
     const [message, setMessage] = useState('')
     const [typing, setTyping] = useState(false);
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        localStorage.setItem('messagesList', JSON.stringify(messagesList));
+        //localStorage.setItem('messagesList', JSON.stringify(messagesList));
     }, [messagesList]);
 
     function addMessage(event) {
         event.preventDefault()
         const message = event.target.message.value
+        sendMessage(message)
+        setMessage('')
+    }
 
+    function sendMessage(message) {
         if (message === '' || typing || loading) return
 
         setMessagesList(prevMessagesList => [
@@ -45,6 +43,8 @@ export default function MainContent(props) {
                 let index = 0
                 let delay = 1000
 
+                console.log(response)
+
                 const displayNextReply = () => {
                     if (index === response.length) {
                         return;
@@ -54,11 +54,20 @@ export default function MainContent(props) {
                     setTyping(true);
 
                     if (reply.text) {
-                        setMessagesList(prevMessagesList => [
-                            ...prevMessagesList,
-                            { isSender: false, message: reply.text }
-                        ]);
-                        delay = reply.text.length * 50
+                        if (reply.buttons) {
+                            setMessagesList(prevMessagesList => [
+                                ...prevMessagesList,
+                                { isSender: false, message: reply.text, buttons: reply.buttons }
+                            ])
+                            delay = 0 //reply.text.length * 50
+                        }
+                        else{
+                            setMessagesList(prevMessagesList => [
+                                ...prevMessagesList,
+                                { isSender: false, message: reply.text }
+                            ]);
+                            delay = reply.text.length * 50
+                        }
 
                     } else if (reply.image) {
                         setMessagesList(prevMessagesList => [
@@ -66,6 +75,7 @@ export default function MainContent(props) {
                             { isSender: false, message: reply.image }
                         ]);
                         delay = reply.image.length * 50
+
                     }
 
                     setTimeout(() => {
@@ -86,8 +96,6 @@ export default function MainContent(props) {
                 ]);
                 setLoading(false)
             })
-
-        setMessage('')
     }
 
     const messagesElements = messagesList.map((msg, index) => {
@@ -96,8 +104,9 @@ export default function MainContent(props) {
                 key={index}
                 message={msg.message}
                 isSender={msg.isSender}
+                buttons={msg.buttons}
+                handleButtonClick={sendMessage}
                 isTyping={index === messagesList.length - 1 && typing}
-                darkMode={props.darkMode}
             />
         )
 
@@ -106,7 +115,7 @@ export default function MainContent(props) {
 
     const messagesEndRef = useRef(null)
     const scrollToBottom = () => messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
-    useEffect(() => scrollToBottom(), [messagesList]);
+    useEffect(() => scrollToBottom(), [messagesList, typing])
 
 
     return (
@@ -126,7 +135,6 @@ export default function MainContent(props) {
                     message={message}
                     setMessage={setMessage}
                     isDisabled={typing || loading}
-                    darkMode={props.darkMode}
                 />
             </Container>
         </>

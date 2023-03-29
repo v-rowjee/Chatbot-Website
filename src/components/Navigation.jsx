@@ -1,13 +1,36 @@
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { FaSun, FaMoon } from 'react-icons/fa'
+import { useState, useEffect } from 'react';
 
-export default function Navigation(props) {
+export default function Navigation() {
 
-  function toggleDarkMode() {
-    props.setDarkMode(!props.darkMode)
+  const [selectedTheme, setSelectedTheme] = useState(localStorage.getItem("selectedTheme") || "light")
+
+  const setDarkMode = () => {
+    document.querySelector("body").setAttribute("data-theme", "dark")
+    localStorage.setItem("selectedTheme", "dark")
+    setSelectedTheme("dark")
   }
 
-  const toggleElement = props.darkMode
+  const setLightMode = () => {
+    document.querySelector("body").setAttribute("data-theme", "light")
+    localStorage.setItem("selectedTheme", "light")
+    setSelectedTheme("light")
+  }
+
+  const toggleDarkMode = () => {
+    selectedTheme === "dark" ? setLightMode() : setDarkMode()
+  }
+
+  useEffect(() => {
+    if (selectedTheme === "dark") {
+      setDarkMode()
+    } else {
+      setLightMode()
+    }
+  }, [selectedTheme])
+
+  const toggleElement = selectedTheme === "dark"
     ? <FaSun onClick={toggleDarkMode} className='text-light' title='Light Mode' role='button' />
     : <FaMoon onClick={toggleDarkMode} className='text-dark' title='Dark Mode' role='button' />
 
@@ -18,8 +41,8 @@ export default function Navigation(props) {
         fixed='top'
         expand="md"
         className='shadow-sm'
-        variant={props.darkMode ? 'dark' : 'light'}
-        bg={props.darkMode ? 'dark-nav-blur' : 'nav-blur'}
+        variant={selectedTheme === "dark" ? 'dark' : 'light'}
+        bg='navbar-color'
       >
         <Container>
           <Navbar.Brand href="/">FYP</Navbar.Brand>

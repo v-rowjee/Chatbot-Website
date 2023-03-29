@@ -1,33 +1,59 @@
-.bg-nav-blur{
-    background: rgba(134, 182, 254,0.3);
+.bg-navbar-color{
+    background: var(--navbar);
     backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(164, 200, 254, 0.5);
+    border-bottom: var(--nav-border);
+    color: var(--text);
 }
-.bg-dark-nav-blur{
-    background: rgba(2, 22, 50,0.2);
+
+.bg-neutral-color{
+    background: var(--neutral);
     backdrop-filter: blur(5px);
 }
 
-.bg-light-blur{
-    background: linear-gradient(to right, rgba(182, 211, 254,0.4), rgba(182, 211, 254,0.4));
+.bg-secondary-color{
+    background: var(--secondary);
     backdrop-filter: blur(5px);
-}
-.bg-light-blur:hover{
-    background: linear-gradient(to right, rgba(182, 211, 254,0.5), rgba(182, 211, 254,0.5));
-    backdrop-filter: blur(5px);
-    transition: all 0.5s ease-in-out;
 }
 
-.bg-blue-blur{
-    background: linear-gradient(to right,rgba(61, 139, 253,0.9), rgba(13,110,253,0.7));
+.bg-primary-color{
+    background: var(--primary);
     backdrop-filter: blur(5px);
-}
-.bg-blue-blur:hover{
-    background: linear-gradient(to right,rgba(61, 139, 253,1), rgba(13,110,253,0.8));
-    backdrop-filter: blur(5px);
-    transition: all 0.5s ease-in-out;
 }
 
 .bg-blue-custom{
-    background: #0099ff;
+    background: var(--blue);
+}
+
+h1,h3,h5,a{
+    color: var(--text);
+}
+
+.App > svg{
+    fill: var(--blue);
+}
+
+.btn-primary{
+    background: var(--primary);
+}
+
+:root {
+    --primary: linear-gradient(to right,rgba(42, 120, 237, 0.9), rgba(13,110,253,0.7));
+    --secondary: linear-gradient(to right, rgba(182, 211, 254,0.4), rgba(182, 211, 254,0.4));
+    --navbar: rgba(134, 182, 254,0.3);
+    --navbar-border: 1px solid rgba(164, 200, 254, 0.5);
+    --neutral: var(--bs-light);
+    --background: var(--bs-light);
+    --text: var(--bs-dark);
+    --blue: #0099ff;
+}
+
+[data-theme='dark']{
+    --primary: linear-gradient(to right,rgba(61, 139, 253,0.9), rgba(13,110,253,0.7));
+    --secondary: linear-gradient(to right, rgba(182, 211, 254,0.4), rgba(182, 211, 254,0.4));
+    --navbar: rgba(2, 22, 50,0.2);
+    --navbar-border: 1px solid rgba(2, 22, 50,0.2);
+    --neutral: var(--bs-dark);
+    --background: var(--bs-dark);
+    --text: var(--bs-light);
+    --blue: #0099ff;
 }
