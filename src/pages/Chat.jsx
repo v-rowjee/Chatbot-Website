@@ -59,7 +59,7 @@ export default function Chat(props) {
                                 ...prevMessagesList,
                                 { isSender: false, message: reply.text, buttons: reply.buttons }
                             ])
-                            delay = 0 //reply.text.length * 50
+                            delay = reply.text.length * 50
                         }
                         else{
                             setMessagesList(prevMessagesList => [
