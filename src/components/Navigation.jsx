@@ -1,4 +1,4 @@
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Container, Nav, Navbar, Button } from 'react-bootstrap';
 import { FaSun, FaMoon } from 'react-icons/fa'
 import { useState, useEffect } from 'react';
 
@@ -55,7 +55,7 @@ export default function Navigation() {
               <Nav.Link href="/faq" className="mx-0 mx-md-4">FAQ</Nav.Link>
             </Nav>
             <Nav>
-              {toggleElement}
+              <Button variant="primary" href="/chat">Chat Now</Button>
             </Nav>
           </Navbar.Collapse>
         </Container>
