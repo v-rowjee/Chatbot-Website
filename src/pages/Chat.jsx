@@ -11,14 +11,14 @@ export default function Chat(props) {
         const savedList = localStorage.getItem('messagesList')
         return savedList !== null
             ? JSON.parse(savedList)
-            : [{ isSender: false, buttons: [{ title: 'Test', payload: '/ask_bmi' }], message: 'Hello, I\'m a chatbot. Ask me anything.' }]
+            : [{ isSender: false, buttons: [{ title: 'Ask diet plan', payload: '/ask_diet_plan' }], message: 'Hello, I\'m a chatbot. How can i help?' }]
     })
     const [message, setMessage] = useState('')
     const [typing, setTyping] = useState(false);
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        //localStorage.setItem('messagesList', JSON.stringify(messagesList));
+        localStorage.setItem('messagesList', JSON.stringify(messagesList));
     }, [messagesList]);
 
     function addMessage(event) {
@@ -43,7 +43,7 @@ export default function Chat(props) {
                 let index = 0
                 let delay = 1000
 
-                console.log(response)
+                // console.log(response)
 
                 const displayNextReply = () => {
                     if (index === response.length) {
@@ -61,7 +61,7 @@ export default function Chat(props) {
                             ])
                             delay = reply.text.length * 50
                         }
-                        else{
+                        else {
                             setMessagesList(prevMessagesList => [
                                 ...prevMessagesList,
                                 { isSender: false, message: reply.text }

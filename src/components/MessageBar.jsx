@@ -16,7 +16,7 @@ export default function MessageBar(props) {
                             autoComplete='off'
                             autoFocus
                             type='text'
-                            className='bg-transparent border-0 text-light'
+                            className='bg-transparent border-0 text-dark'
                             placeholder='Enter your message here...'
                             value={props.message}
                             onChange={hangleChange}
