@@ -1,4 +1,5 @@
 import { Row, Col, Form, Stack, Button } from 'react-bootstrap'
+import { FaRedoAlt } from 'react-icons/fa'
 import '../styles/App.css'
 
 export default function MessageBar(props) {
@@ -6,6 +7,7 @@ export default function MessageBar(props) {
     function hangleChange(event) {
         props.setMessage(event.target.value)
     }
+
 
     return (
         <Row className='sticky-bottom justify-content-center w-100 text-center m-0 py-3'>
@@ -25,10 +27,13 @@ export default function MessageBar(props) {
                         <Button variant='primary' disabled={props.isDisabled} type="submit">
                             {props.isDisabled ? '...' : 'Send'}
                         </Button>
+                        <Button variant='outline-danger' disabled={props.isDisabled} onClick={props.resetConversation} type='submit' className='px-2 m-0' title='Reset Conversation'>
+                            <FaRedoAlt />
+                        </Button>
                     </Stack>
                 </Form>
             </Col>
-        </Row>
+        </Row >
     )
 
 }

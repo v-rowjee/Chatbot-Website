@@ -43,7 +43,7 @@ export default function Chat(props) {
                 let index = 0
                 let delay = 1000
 
-                // console.log(response)
+                console.log(response)
 
                 const displayNextReply = () => {
                     if (index === response.length) {
@@ -98,6 +98,12 @@ export default function Chat(props) {
             })
     }
 
+    function resetConversation(){
+        localStorage.removeItem('messagesList')
+        sendMessage('/restart')
+        setMessagesList([{ isSender: false, buttons: [{ title: 'Ask diet plan', payload: '/ask_diet_plan' }], message: 'Hello, I\'m a chatbot. How can i help?'}])
+    }
+
     const messagesElements = messagesList.map((msg, index) => {
         return (
             <Message
@@ -122,7 +128,7 @@ export default function Chat(props) {
         <>
             <div className='p-nav'></div>
             <Container className='section'>
-                <Row className='justify-content-center h-100 chat'>
+                <Row className='justify-content-center ps-3 pe-2 h-100 chat'>
                     <Col xs='11' lg='7'>
                         <Stack>
                             {messagesElements}
@@ -134,6 +140,7 @@ export default function Chat(props) {
                     handleSubmit={addMessage}
                     message={message}
                     setMessage={setMessage}
+                    resetConversation={resetConversation}
                     isDisabled={typing || loading}
                 />
             </Container>
