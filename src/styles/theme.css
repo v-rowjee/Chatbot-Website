@@ -1,23 +1,27 @@
 .bg-navbar-color{
     background: var(--navbar);
-    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
     border-bottom: var(--nav-border);
     color: var(--text);
 }
 
 .bg-neutral-color{
     background: var(--neutral);
-    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
 }
 
 .bg-secondary-color{
     background: var(--secondary);
-    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
 }
 
 .bg-primary-color{
     background: var(--primary);
-    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
 }
 
 .bg-blue-custom{
