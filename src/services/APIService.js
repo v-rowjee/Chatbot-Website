@@ -1,6 +1,7 @@
 export default class APIService{
     static sendRequest(body){
-        return fetch(`http://localhost:5005/webhooks/rest/webhook`, {
+        var host = process.env.NODE_ENV === 'production' ? process.env.PROD_SERVER_URL : process.env.DEV_SERVER_URL;
+        return fetch(host + `/webhooks/rest/webhook`, {
             method: 'POST',
             mode: 'cors',
             headers: { 

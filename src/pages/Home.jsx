@@ -13,8 +13,8 @@ import bot_4 from "../assets/bots/4.png"
 import bot_6 from "../assets/bots/6.png"
 
 
-
 export default function Home() {
+    const heading = `Hi, I'm ${process.env.APP_NAME}! How can I help you today?`;
     return (
         <>
             <div className="p-nav"></div>
@@ -23,7 +23,7 @@ export default function Home() {
                     <Col sm={12} md={6} className="text-center text-md-start p-5 p-md-0 ps-md-5">
                         <h1 className="display-5 fw-bold me-lg-5">
                             <TypeAnimation
-                                sequence={["Hi, I'm DietBot! How can I help you today?"]}
+                                sequence={[heading]}
                                 speed={60}
                                 cursor={false}
                             />

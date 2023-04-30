@@ -8,9 +8,19 @@ import NotFound from './pages/NotFound'
 import './styles/App.css'
 
 function App() {
-
+  const enablePreoader = process.env.ENABLE_PRELOADER ?? false;
   const location = useLocation();
   const hideFooter = location.pathname.toLowerCase() === '/chat';
+
+  function Preloader() {
+    return (
+      <Sugar
+        color='rgb(61, 139, 253)'
+        background="#fff"
+        animation='fade'
+        time={700} />
+    )
+  }
 
   return (
     <>
@@ -24,11 +34,7 @@ function App() {
         </Routes>
         <Footer hide={hideFooter} />
       </div>
-      <Sugar 
-        color='#fff' 
-        background="rgb(61, 139, 253)"
-        animation='fade'
-        time={750} />
+      {enablePreoader && <Preloader />}
     </>
   )
 }
