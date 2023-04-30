@@ -11,7 +11,7 @@ export default function Chat(props) {
         const savedList = localStorage.getItem('messagesList')
         return savedList !== null
             ? JSON.parse(savedList)
-            : [{ isSender: false, buttons: [{ title: 'Ask diet plan', payload: '/ask_diet_plan' }], message: 'Hello, I\'m a chatbot. How can i help?' }]
+            : [{ isSender: false, buttons: [{ title: 'Ask diet plan', payload: '/ask_diet_plan' }], message: `Hello, I\'m ${process.env.APP_NAME}. How can i help?` }]
     })
     const [message, setMessage] = useState('')
     const [typing, setTyping] = useState(false);
@@ -101,7 +101,7 @@ export default function Chat(props) {
     function resetConversation(){
         localStorage.removeItem('messagesList')
         sendMessage('/restart')
-        setMessagesList([{ isSender: false, buttons: [{ title: 'Ask diet plan', payload: '/ask_diet_plan' }], message: 'Hello, I\'m a chatbot. How can i help?'}])
+        setMessagesList([{ isSender: false, buttons: [{ title: 'Ask diet plan', payload: '/ask_diet_plan' }], message: `Hello, I\'m ${process.env.APP_NAME}. How can i help?`}])
     }
 
     const messagesElements = messagesList.map((msg, index) => {
@@ -129,7 +129,7 @@ export default function Chat(props) {
             <div className='p-nav'></div>
             <Container className='section'>
                 <Row className='justify-content-center ps-3 pe-2 h-100 chat'>
-                    <Col xs='11' lg='7'>
+                    <Col xs='12' lg='7'>
                         <Stack>
                             {messagesElements}
                             <div ref={messagesEndRef} />

@@ -8,17 +8,19 @@ export default function MessageBar(props) {
         props.setMessage(event.target.value)
     }
 
+    var textColor = localStorage.getItem("selectedTheme") === "dark" ? 'text-light bg-transparent border-0' : 'text-dark bg-transparent border-0'
+
 
     return (
         <Row className='sticky-bottom justify-content-center w-100 text-center m-0 py-3'>
-            <Col xs='11' lg='7' className='bg-neutral-color rounded p-3 shadow-lg'>
+            <Col xs='12' lg='7' className='bg-neutral-color rounded p-3 shadow-lg'>
                 <Form onSubmit={props.handleSubmit}>
                     <Stack direction="horizontal" gap={3}>
                         <Form.Control
                             autoComplete='off'
                             autoFocus
                             type='text'
-                            className='bg-transparent border-0 text-dark'
+                            className={textColor}
                             placeholder='Enter your message here...'
                             value={props.message}
                             onChange={hangleChange}

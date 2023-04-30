@@ -4,7 +4,12 @@ import { useState, useEffect } from 'react';
 
 export default function Navigation() {
 
-  const [selectedTheme, setSelectedTheme] = useState(localStorage.getItem("selectedTheme") || "light")
+  var defaultTheme = "light"
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    defaultTheme = "dark"
+  }
+
+  const [selectedTheme, setSelectedTheme] = useState(localStorage.getItem("selectedTheme") || defaultTheme)
 
   const setDarkMode = () => {
     document.querySelector("body").setAttribute("data-theme", "dark")
@@ -45,7 +50,7 @@ export default function Navigation() {
         bg='navbar-color'
       >
         <Container>
-          <Navbar.Brand href="/">FYP</Navbar.Brand>
+          <Navbar.Brand href="/">{process.env.APP_NAME}.</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbar-nav" />
           <Navbar.Collapse id="navbar-nav">
             <Nav className="mx-auto">
@@ -53,6 +58,9 @@ export default function Navigation() {
               <Nav.Link href="/chat" className="mx-0 mx-md-4">Chatbot</Nav.Link>
               <Nav.Link href="/#download" className="mx-0 mx-md-4">Download</Nav.Link>
               <Nav.Link href="/faq" className="mx-0 mx-md-4">FAQ</Nav.Link>
+            </Nav>
+            <Nav className='pe-4 py-2'>
+              {toggleElement}
             </Nav>
             <Nav>
               <Button variant="primary" href="/chat">Chat Now</Button>
