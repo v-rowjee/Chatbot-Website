@@ -11,7 +11,7 @@ export default function Footer(props) {
                 <Wave3 />
                 <footer className="bg-blue-custom pb-3">
                     <Container fluid className="pb-3">
-                        <p className='float-md-end text-light m-0'>© 2023 FYP. All Rights Reserved.</p>
+                        <p className='float-md-end text-light m-0'>© {new Date().getFullYear()} FYP. All Rights Reserved.</p>
                     </Container>
                 </footer>
             </>
