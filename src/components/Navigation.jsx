@@ -1,6 +1,7 @@
 import { Container, Nav, Navbar, Button } from 'react-bootstrap';
 import { FaSun, FaMoon } from 'react-icons/fa'
 import { useState, useEffect } from 'react';
+import logo from "../assets/logo.png"
 
 export default function Navigation() {
 
@@ -50,7 +51,16 @@ export default function Navigation() {
         bg='navbar-color'
       >
         <Container>
-          <Navbar.Brand href="/">{process.env.APP_NAME}.</Navbar.Brand>
+          <Navbar.Brand href="/">
+            <img
+              alt=""
+              src={logo}
+              width="30"
+              height="30"
+              className="d-inline-block align-top pb-1 pe-1"
+            />
+            {process.env.APP_NAME}.
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbar-nav" />
           <Navbar.Collapse id="navbar-nav">
             <Nav className="mx-auto">

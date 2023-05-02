@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { Row, Col, Stack, Container, Image } from 'react-bootstrap'
+import { Row, Col, Stack, Container } from 'react-bootstrap'
+import { toast } from 'react-toastify';
 import APIService from '../services/APIService'
 import Message from '../components/Message'
 import MessageBar from '../components/MessageBar'
@@ -16,6 +17,7 @@ export default function Chat(props) {
     const [message, setMessage] = useState('')
     const [typing, setTyping] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
 
     useEffect(() => {
         localStorage.setItem('messagesList', JSON.stringify(messagesList));
@@ -43,7 +45,7 @@ export default function Chat(props) {
                 let index = 0
                 let delay = 1000
 
-                console.log(response)
+                // console.log(response)
 
                 const displayNextReply = () => {
                     if (index === response.length) {
@@ -87,21 +89,22 @@ export default function Chat(props) {
 
                 displayNextReply()
                 setLoading(false)
+                setError(false)
             })
             .catch(error => {
-                console.log('Error', error)
-                setMessagesList(prevMessagesList => [
-                    ...prevMessagesList,
-                    { isSender: false, message: "There was an error fetching data from the API. Try again later." }
-                ]);
                 setLoading(false)
+
+                setError(true)
+                setMessagesList(messagesList)
             })
     }
 
-    function resetConversation(){
-        localStorage.removeItem('messagesList')
-        sendMessage('/restart')
-        setMessagesList([{ isSender: false, buttons: [{ title: 'Ask diet plan', payload: '/ask_diet_plan' }], message: `Hello, I\'m ${process.env.APP_NAME}. How can i help?`}])
+    function resetConversation() {
+        sendMessage('/restart');
+        if (!error) {
+            localStorage.removeItem('messagesList')
+            setMessagesList([{ isSender: false, buttons: [{ title: 'Ask diet plan', payload: '/ask_diet_plan' }], message: `Hello, I\'m ${process.env.APP_NAME}. How can i help?` }]);
+        }
     }
 
     const messagesElements = messagesList.map((msg, index) => {

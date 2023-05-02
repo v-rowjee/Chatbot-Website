@@ -1,3 +1,5 @@
+import { toast } from 'react-toastify';
+
 export default class APIService{
     static sendRequest(body){
         var host = process.env.SERVER_URL
@@ -13,6 +15,18 @@ export default class APIService{
             body: JSON.stringify(body),
         })
         .then(response => response.json())
-        .catch(error => console.error('Error:', error))
+        .catch(error => {
+            console.error('Error fetching data from server:', error)
+                toast.error('An error occurred while sending message. Please try again later.', {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                })
+        })
     }
 }

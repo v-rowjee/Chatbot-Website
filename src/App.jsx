@@ -1,11 +1,12 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { Sugar } from 'react-preloaders'
-import { Helmet } from "react-helmet";
+import { ToastContainer } from 'react-toastify';
 import Footer from './components/Footer'
 import Navigation from './components/Navigation'
 import Chat from './pages/Chat'
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'
+import 'react-toastify/dist/ReactToastify.css';
 import './styles/App.css'
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
         <Footer hide={hideFooter} />
       </div>
       {enablePreoader && <Preloader />}
+      <ToastContainer />
     </>
   )
 }
