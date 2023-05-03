@@ -53,11 +53,11 @@ h1,h3,h5,a{
 
 [data-theme='dark']{
     --primary: linear-gradient(to right,rgba(61, 139, 253,0.9), rgba(13,110,253,0.7));
-    --secondary: linear-gradient(to right, rgba(182, 211, 254,0.4), rgba(182, 211, 254,0.4));
+    --secondary: linear-gradient(to right, rgba(202, 223, 255, 0.7), rgba(182, 211, 254,0.7));
     --navbar: rgba(2, 22, 50,0.2);
     --navbar-border: 1px solid rgba(2, 22, 50,0.2);
     --neutral: var(--bs-dark);
     --background: var(--bs-dark);
     --text: var(--bs-light);
-    --blue: #0099ff;
+    --blue: #0185de;
 }

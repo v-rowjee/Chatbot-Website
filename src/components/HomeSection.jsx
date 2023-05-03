@@ -22,7 +22,7 @@ export default function HomeSection(props) {
             <div className="ms-md-5">
               <h2 className="display-4 mb-4 fw-bold">{props.title}</h2>
               <p className="mb-4">{props.text}</p>
-              <Button variant="light">Learn More &gt;</Button>
+              <Button variant="light" href='/chat'>Learn More &gt;</Button>
             </div>
           </Col>
         </Row>

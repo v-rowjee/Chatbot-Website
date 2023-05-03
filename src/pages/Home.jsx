@@ -41,47 +41,45 @@ export default function Home() {
             <Wave1 />
             <HomeSection
                 img={bot_4}
-                reverse={false}
-                title="Customised Meal Plans"
-                text="The bot will help you with your diet by providing you with a meal plan and recipes. It will also help you with your fitness by providing you with a workout plan and exercises."
+                title="Personalized Diet Plans."
+                text="Tired of ineffective one-size-fits-all diets? Meet Cibo - the personalized diet recommendation chatbot. Get customized meal plans and nutrition advice based on your unique dietary needs and preferences. Achieve your health goals with Cibo today."
             />
             <HomeSection
                 img={bot_3}
                 reverse={true}
-                title="Customised Workout Plans"
-                text="The bot will help you with your diet by providing you with a meal plan and recipes. It will also help you with your fitness by providing you with a workout plan and exercises."
+                title="Easy-to-Use Interface."
+                text="Cibo's chatbot offers personalized diet recommendations with an easy-to-use interface that fits any lifestyle. Its clear and concise messaging guides users seamlessly through the conversation, providing the best recommendations 24/7."
             />
             <HomeSection
                 img={bot_6}
-                reverse={false}
-                title="Customised Meal Plans"
-                text="The bot will help you with your diet by providing you with a meal plan and recipes. It will also help you with your fitness by providing you with a workout plan and exercises."
+                title="Expert Advice at Your Fingertips."
+                text="Cibo's advanced machine learning algorithms analyze your dietary habits to provide personalized meal plans tailored to your health goals. Get scientifically-proven recommendations that are specifically designed for you."
             />
             <Wave2 />
             <Container>
                 <Row className="text-center justify-content-center mb-5">
                     <Col sm={8}>
                         <h3 className="text-bold my-4">Stay Connected on All Channels</h3>
-                        <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos debitis a.</h5>
+                        <h5 className="opacity-75">Chat with me anytime and anywhere, on all our interfaces</h5>
                     </Col>
                 </Row>
                 <Row className="justify-content-around">
                     <HomeCard
                         icon={<FaGlobe size={30} />}
                         title="Website Chat"
-                        text="Lorem ipsum dolor sit amet consectetur adipisicing elit."
+                        text="Accessible through all browsers and devices."
                         link="/chat"
                     />
                     <HomeCard
                         icon={<FaFacebookMessenger size={30} />}
                         title="Facebook Messenger"
-                        text="Soon avilable on Messenger, Telegram, WhatsApp, and more!"
-                        link="https://www.facebook.com"
+                        text="Chat with me on you favorite social media!"
+                        link="https://www.facebook.com/cibochatbot"
                     />
                     <HomeCard
                         icon={<FaMobile size={30} />}
-                        title="Mobile Playstore"
-                        text="Lorem ipsum dolor sit amet consectetur adipisicing elit."
+                        title="Android Mobile App"
+                        text="Download now and chat with me on the go!"
                         link="/download"
                     />
                 </Row>
