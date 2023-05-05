@@ -12,7 +12,7 @@ export default function HomeSection(props) {
             md={6}
             className="justify-content-center"
           >
-            <Image src={props.img} fluid />
+            <Image src={props.img} fluid loading='lazy' />
           </Col>
           <Col
             xs={12}

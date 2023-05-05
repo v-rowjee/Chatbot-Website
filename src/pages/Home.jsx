@@ -34,6 +34,7 @@ export default function Home() {
                             src={bot_1}
                             alt="img"
                             fluid
+                            loading="eager"
                         />
                     </Col>
                 </Row>
