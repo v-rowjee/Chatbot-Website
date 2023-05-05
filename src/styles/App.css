@@ -58,3 +58,8 @@ html{
     -webkit-box-shadow:none !important;
             box-shadow:none !important;
 }
+
+.linkify a{
+    color: #adb9d4;
+    text-decoration: none;
+}

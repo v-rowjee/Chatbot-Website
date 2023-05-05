@@ -42,17 +42,11 @@ export default function Chat(props) {
 
         APIService.sendRequest({ message })
             .then(response => {
-                let index = 0
                 let delay = 1000
 
-                // console.log(response)
+                console.log(response)
 
-                const displayNextReply = () => {
-                    if (index === response.length) {
-                        return;
-                    }
-
-                    const reply = response[index];
+                response.map(reply => {
                     setTyping(true);
 
                     if (reply.text) {
@@ -80,14 +74,9 @@ export default function Chat(props) {
 
                     }
 
-                    setTimeout(() => {
-                        setTyping(false)
-                        index++
-                        displayNextReply()
-                    }, delay)
-                };
+                    setTimeout(() => setTyping(false), delay)
+                })
 
-                displayNextReply()
                 setLoading(false)
                 setError(false)
             })

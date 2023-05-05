@@ -1,10 +1,11 @@
-import { Card, Button, Row, Col } from "react-bootstrap";
+import { Card, Button, Alert } from "react-bootstrap";
 import { TypeAnimation } from "react-type-animation";
+import Linkify from "react-linkify";
 import '../styles/App.css'
 
 export default function Message(props) {
 
-    let styles = props.isSender ? 'mb-3 shadow-sm bg-secondary-color' : 'mb-3 shadow-sm bg-primary-color text-light'
+    let styles = props.isSender ? 'mb-3 shadow-sm bg-secondary-color linkify' : 'mb-3 shadow-sm bg-primary-color text-light linkify'
 
     return (
         <>
@@ -15,7 +16,11 @@ export default function Message(props) {
                         cursor={true}
                         speed={50}
                     />
-                    : props.message
+                    : <Linkify>
+                        {props.message
+                            .split('\n')
+                            .map((text, index) => <span key={index}>{text}<br /></span>)}
+                    </Linkify>
                 }
             </Card>
             {!props.isTyping && props.buttons && (
