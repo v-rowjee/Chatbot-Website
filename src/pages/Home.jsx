@@ -22,7 +22,7 @@ export default function Home() {
                     <Col sm={12} md={6} className="text-center text-md-start p-5 p-md-0 ps-md-5">
                         <h1 className="display-5 fw-bold me-lg-5">
                             <TypeAnimation
-                                sequence={[`Hi, I'm ${process.env.APP_NAME}! Are you looking for a diet plan?`]}
+                                sequence={[`Hi, I'm your diet assistant! Are you looking for a diet plan?`]}
                                 speed={60}
                                 cursor={false}
                             />

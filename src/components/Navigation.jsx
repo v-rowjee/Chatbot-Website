@@ -59,7 +59,7 @@ export default function Navigation() {
               height="30"
               className="d-inline-block align-top pb-1 pe-1"
             />
-            {process.env.APP_NAME}.
+            Cibo.
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbar-nav" />
           <Navbar.Collapse id="navbar-nav">
