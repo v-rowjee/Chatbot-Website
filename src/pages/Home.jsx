@@ -15,7 +15,7 @@ import bot_6 from "../assets/bots/6.png"
 
 export default function Home() {
     return (
-        <>
+        <> 
             <div className="p-nav"></div>
             <Container>
                 <Row className="align-items-center justify-self-center">
