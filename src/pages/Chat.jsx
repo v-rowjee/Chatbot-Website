@@ -93,6 +93,16 @@ export default function Chat(props) {
         if (!error) {
             localStorage.removeItem('messagesList')
             setMessagesList([{ isSender: false, buttons: [{ title: 'Ask diet plan', payload: '/ask_diet_plan' }], message: `Hello, I\'m your diet assistant. How can i help?` }]);
+            toast.error('Conversation has been restarted.', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            })
         }
     }
 
