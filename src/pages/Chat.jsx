@@ -57,21 +57,39 @@ export default function Chat(props) {
                             ])
                             delay = reply.text.length * 50
                         }
+                        else if (reply.image) {
+                            setMessagesList(prevMessagesList => [
+                                ...prevMessagesList,
+                                { isSender: false, image: reply.image }
+                            ]);
+                            delay = 0
+                        }
                         else {
                             setMessagesList(prevMessagesList => [
                                 ...prevMessagesList,
                                 { isSender: false, message: reply.text }
-                            ]);
+                            ])
                             delay = reply.text.length * 50
                         }
 
                     } else if (reply.image) {
                         setMessagesList(prevMessagesList => [
                             ...prevMessagesList,
-                            { isSender: false, message: reply.image }
+                            { isSender: false, image: reply.image }
                         ]);
-                        delay = reply.image.length * 50
-
+                        delay = 0
+                    }
+                    else {
+                        toast.error('An error occured on our side. Please try again.', {
+                            position: "top-center",
+                            autoClose: 5000,
+                            hideProgressBar: true,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "colored",
+                        })
                     }
 
                     setTimeout(() => setTyping(false), delay)
@@ -113,6 +131,7 @@ export default function Chat(props) {
                 message={msg.message}
                 isSender={msg.isSender}
                 buttons={msg.buttons}
+                image={msg.image}
                 handleButtonClick={sendMessage}
                 isTyping={index === messagesList.length - 1 && typing}
             />
