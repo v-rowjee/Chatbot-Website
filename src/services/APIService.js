@@ -17,17 +17,17 @@ export default class APIService{
         })
         .then(response => response.json())
         .catch(error => {
-            console.error('Error fetching data from server:', error)
-                toast.error('An error occurred while sending message. Please try again later.', {
-                    position: "top-center",
-                    autoClose: 5000,
-                    hideProgressBar: true,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "colored",
-                })
+            // console.error('Error fetching data from server:', error)
+            toast.error('An error occurred while sending message. Please try again later.', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            })
         })
     }
 }
