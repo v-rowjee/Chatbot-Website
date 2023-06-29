@@ -5,7 +5,7 @@ export default class APIService{
         var host = process.env.SERVER_URL
         return fetch(host + `/webhooks/rest/webhook`, {
             method: 'POST',
-            mode: 'cors',
+            mode: 'no-cors',
             headers: { 
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*',
