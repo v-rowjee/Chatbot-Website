@@ -6,7 +6,7 @@ export default class APIService {
         var host = "https://aac4-102-113-28-112.ngrok-free.app"
         return fetch(host + `/webhooks/rest/webhook`, {
             method: 'POST',
-            mode: 'no-cors',
+            mode: 'cors',
             headers: {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*',
