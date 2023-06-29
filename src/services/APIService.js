@@ -2,8 +2,8 @@ import { toast } from 'react-toastify';
 
 export default class APIService{
     static sendRequest(body){
-        var host = process.env.SERVER_URL
-        // var host_ = "https://aac4-102-113-28-112.ngrok-free.app"
+        // var host = process.env.SERVER_URL
+        var host = "https://aac4-102-113-28-112.ngrok-free.app"
         return fetch(host + `/webhooks/rest/webhook`, {
             method: 'POST',
             mode: 'no-cors',
