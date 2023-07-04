@@ -62,7 +62,7 @@ export default function Chat(props) {
                                 ...prevMessagesList,
                                 { isSender: false, image: reply.image }
                             ]);
-                            delay = 0
+                            delay = 10
                         }
                         else {
                             setMessagesList(prevMessagesList => [
@@ -77,7 +77,7 @@ export default function Chat(props) {
                             ...prevMessagesList,
                             { isSender: false, image: reply.image }
                         ]);
-                        delay = 0
+                        delay = 10
                     }
                     else {
                         toast.error('An error occured on our side. Please try again.', {

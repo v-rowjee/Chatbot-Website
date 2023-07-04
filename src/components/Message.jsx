@@ -43,8 +43,8 @@ export default function Message(props) {
             )}
             {!props.isTyping && props.image && (
                 <Card body className={styles} onClick={() => setShow(true)} style={{cursor: 'pointer'}}>
-                    <img height="100" className="rounded-1 me-3" src={props.image} />
-                    Click to view full image.
+                    <img height="50rem" className="rounded-1 me-3" src={props.image} />
+                    <small className="opacity-50">Click to view full card.</small>
                 </Card>
             )}
             <Modal show={show} dialogClassName="modal-100w" centered onHide={() => setShow(false)}>
@@ -56,7 +56,7 @@ export default function Message(props) {
                         Close
                     </Button>
                     <Button variant="primary" href={props.image} target="_blank">
-                        Open
+                        Open In New Tab
                     </Button>
                 </Modal.Footer>
             </Modal>

@@ -1,9 +1,14 @@
 import { toast } from 'react-toastify';
+import { nanoid } from 'nanoid';
 
 export default class APIService {
     static sendRequest(body) {
-        // var host = process.env.SERVER_URL
-        var host = "https://aac4-102-113-28-112.ngrok-free.app"
+        var host = process.env.SERVER_URL
+        // var host = "https://aac4-102-113-28-112.ngrok-free.app"
+
+        const sender = this.generateUniqueID();
+        body.sender = sender;
+
         return fetch(host + `/webhooks/rest/webhook`, {
             method: 'POST',
             mode: 'cors',
@@ -30,4 +35,13 @@ export default class APIService {
                 })
             })
     }
+    static generateUniqueID() {
+        let senderId = localStorage.getItem('senderId');
+        if (!senderId) {
+            senderId = nanoid(36); // for a 36-character ID
+            localStorage.setItem('senderId', senderId);
+        }
+        return senderId;
+    }
+
 }
