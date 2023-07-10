@@ -44,7 +44,7 @@ export default function Navigation() {
     <>
       <Navbar
         collapseOnSelect
-        fixed='top'
+        sticky='top'
         expand="md"
         className='shadow-sm'
         variant={selectedTheme === "dark" ? 'dark' : 'light'}
@@ -66,7 +66,7 @@ export default function Navigation() {
             <Nav className="mx-auto">
               <Nav.Link href="/" className="mx-0 mx-md-4">Home</Nav.Link>
               <Nav.Link href="/chat" className="mx-0 mx-md-4">Chatbot</Nav.Link>
-              <Nav.Link href="/download" className="mx-0 mx-md-4">Download</Nav.Link>
+              {/* <Nav.Link href="/download" className="mx-0 mx-md-4">Download</Nav.Link> */}
               <Nav.Link href="/faq" className="mx-0 mx-md-4">FAQ</Nav.Link>
             </Nav>
             <Nav className='pe-4 py-2'>

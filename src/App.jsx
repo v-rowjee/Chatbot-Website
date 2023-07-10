@@ -6,6 +6,7 @@ import Navigation from './components/Navigation'
 import Chat from './pages/Chat'
 import Home from './pages/Home'
 import Downlaod from './pages/Download';
+import FAQ from './pages/FAQ'
 import NotFound from './pages/NotFound'
 import 'react-toastify/dist/ReactToastify.css';
 import './styles/App.css'
@@ -39,6 +40,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/chat' element={<Chat />} />
           <Route path='/download' element={<Downlaod />} />
+          <Route path='/faq' element={<FAQ />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
         <Footer hide={hideFooter} />

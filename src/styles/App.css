@@ -49,10 +49,6 @@ html{
     height: calc(100vh - 81px);
 }
 
-.p-nav{
-    padding-top: 66px;
-}
-
 .form-control:focus,
 .form-control:active{
     -webkit-box-shadow:none !important;

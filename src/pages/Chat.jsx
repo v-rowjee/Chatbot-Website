@@ -147,9 +147,8 @@ export default function Chat(props) {
 
     return (
         <>
-            <div className='p-nav'></div>
             <Container className='section'>
-                <Row className='justify-content-center ps-3 pe-2 h-100 chat'>
+                <Row className='justify-content-center ps-3 pe-2 pt-3 h-100 chat'>
                     <Col xs='12' lg='8'>
                         <Stack>
                             {messagesElements}
