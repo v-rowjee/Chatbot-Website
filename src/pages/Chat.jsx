@@ -12,7 +12,7 @@ export default function Chat(props) {
         const savedList = localStorage.getItem('messagesList')
         return savedList !== null
             ? JSON.parse(savedList)
-            : [{ isSender: false, buttons: [{ title: 'Ask diet plan', payload: '/ask_diet_plan' }], message: `Hello, I\'m your diet assistant. How can i help?` }]
+            : [{ isSender: false, buttons: [{ title: 'Get Started🤩', payload: '/get_started' },{ title: 'Ask for a Diet Plan🍽️', payload: '/ask_diet_plan' }], message: `Hello, I\'m your diet assistant. How can i help?👋` }]
     })
     const [message, setMessage] = useState('')
     const [typing, setTyping] = useState(false);
@@ -110,7 +110,7 @@ export default function Chat(props) {
         sendMessage('/restart');
         if (!error) {
             localStorage.removeItem('messagesList')
-            setMessagesList([{ isSender: false, buttons: [{ title: 'Ask diet plan', payload: '/ask_diet_plan' }], message: `Hello, I\'m your diet assistant. How can i help?` }]);
+            setMessagesList([{ isSender: false, buttons: [{ title: 'Get Started🤩', payload: '/get_started' },{ title: 'Ask for a Diet Plan🍽️', payload: '/ask_diet_plan' }], message: `Hello, I\'m your diet assistant. How can i help?👋` }]);
             toast.error('Conversation has been restarted.', {
                 position: "top-center",
                 autoClose: 5000,
