@@ -46,7 +46,7 @@ export default function Navigation() {
         collapseOnSelect
         sticky='top'
         expand="md"
-        className='shadow-sm'
+        className='shadow-sm py-1'
         variant={selectedTheme === "dark" ? 'dark' : 'light'}
         bg='navbar-color'
       >
@@ -73,7 +73,7 @@ export default function Navigation() {
               {toggleElement}
             </Nav>
             <Nav>
-              <Button variant="primary" href="/chat">Chat Now</Button>
+              <Button variant="primary" size='sm' href="/chat">Chat Now</Button>
             </Nav>
           </Navbar.Collapse>
         </Container>
