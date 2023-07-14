@@ -23,28 +23,25 @@ export default function Chat(props) {
         localStorage.setItem('messagesList', JSON.stringify(messagesList));
     }, [messagesList]);
 
-    function addMessage(event) {
-        event.preventDefault()
-        const message = event.target.message.value
-        sendMessage(message)
-        setMessage('')
-    }
-
-    function sendMessage(message) {
+    const addMessageToList = (message) => {
         if (message === '' || typing || loading) return
 
         setMessagesList(prevMessagesList => [
             ...prevMessagesList,
             { isSender: true, message }
         ])
+        
+        setMessage('')
+    }
 
+    function sendMessage(message) {
         setLoading(true)
 
         APIService.sendRequest({ message })
             .then(response => {
                 let delay = 1000
 
-                console.log(response)
+                // console.log(response)
 
                 response.map(reply => {
                     setTyping(true);
@@ -91,7 +88,6 @@ export default function Chat(props) {
                             theme: "colored",
                         })
                     }
-
                     setTimeout(() => setTyping(false), delay)
                 })
 
@@ -104,11 +100,8 @@ export default function Chat(props) {
                 setError(true)
                 setMessagesList(messagesList)
             })
-    }
 
-    function resetConversation() {
-        sendMessage('/restart');
-        if (!error) {
+        if (message === '/restart' && !error) {
             localStorage.removeItem('messagesList')
             setMessagesList([{ isSender: false, buttons: [{ title: 'Get Started🤩', payload: '/get_started' },{ title: 'Ask for a Diet Plan🍽️', payload: '/ask_diet_plan' }], message: `Hello, I\'m your diet assistant. How can i help?👋` }]);
             toast.error('Conversation has been restarted.', {
@@ -132,7 +125,8 @@ export default function Chat(props) {
                 isSender={msg.isSender}
                 buttons={msg.buttons}
                 image={msg.image}
-                handleButtonClick={sendMessage}
+                addMessageToList={addMessageToList}
+                sendMessage={sendMessage}
                 isTyping={index === messagesList.length - 1 && typing}
             />
         )
@@ -157,10 +151,10 @@ export default function Chat(props) {
                     </Col>
                 </Row>
                 <MessageBar
-                    handleSubmit={addMessage}
+                    addMessageToList={addMessageToList}
+                    sendMessage={sendMessage}
                     message={message}
                     setMessage={setMessage}
-                    resetConversation={resetConversation}
                     isDisabled={typing || loading}
                 />
             </Container>

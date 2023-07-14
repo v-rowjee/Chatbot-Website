@@ -8,14 +8,23 @@ export default function MessageBar(props) {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
     const handleConfirm = () => {
         handleClose() 
-        props.resetConversation()
+        props.sendMessage('/restart')
     }
 
-    function hangleChange(event) {
+    const hangleChange = (event) => {
         props.setMessage(event.target.value)
     }
+
+    const handleSubmitForm = (event) => {
+        event.preventDefault()
+        var message = event.target.message.value
+        props.addMessageToList(message)
+        props.sendMessage(message)
+    }
+
 
     var textColor = localStorage.getItem("selectedTheme") === "dark" ? 'text-light bg-transparent border-0' : 'text-dark bg-transparent border-0'
 
@@ -24,7 +33,7 @@ export default function MessageBar(props) {
         <>
             <Row className='sticky-bottom justify-content-center w-100 text-center m-0 py-3'>
                 <Col xs='12' lg='8' className='bg-neutral-color rounded p-3 shadow-lg'>
-                    <Form onSubmit={props.handleSubmit}>
+                    <Form onSubmit={handleSubmitForm}>
                         <Stack direction="horizontal" gap={3}>
                             <Form.Control
                                 autoComplete='off'

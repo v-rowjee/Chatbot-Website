@@ -8,6 +8,11 @@ export default function Message(props) {
 
     const [show, setShow] = useState(false);
 
+    const handleButtonClick = (button) => {
+        props.addMessageToList(button.title)
+        props.sendMessage(button.payload)
+    }
+
     let styles = props.isSender ? 'mb-4 shadow-sm bg-secondary-color linkify' : 'mb-2 shadow-sm bg-primary-color text-light linkify'
 
     return (
@@ -35,7 +40,7 @@ export default function Message(props) {
                             key={index}
                             variant="primary"
                             className="mb-2 me-3"
-                            onClick={() => props.handleButtonClick(button.title)}>
+                            onClick={() => handleButtonClick(button)}>
                             {button.title}
                         </Button>
                     ))}
