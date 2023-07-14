@@ -35,13 +35,14 @@ export default function Chat(props) {
     }
 
     function sendMessage(message) {
+        if (message === '') return
         setLoading(true)
 
         APIService.sendRequest({ message })
             .then(response => {
                 let delay = 1000
 
-                // console.log(response)
+                console.log(message)
 
                 response.map(reply => {
                     setTyping(true);

@@ -10,8 +10,8 @@ export default function MessageBar(props) {
     const handleShow = () => setShow(true);
 
     const handleConfirm = () => {
-        handleClose() 
-        props.sendMessage('/restart')
+        props.sendMessage("/restart")
+        handleClose()
     }
 
     const hangleChange = (event) => {
@@ -19,10 +19,12 @@ export default function MessageBar(props) {
     }
 
     const handleSubmitForm = (event) => {
-        event.preventDefault()
-        var message = event.target.message.value
-        props.addMessageToList(message)
-        props.sendMessage(message)
+        if (event) {
+            event.preventDefault()
+            var message = event.target.message.value
+            props.addMessageToList(message)
+            props.sendMessage(message)
+        }
     }
 
 
