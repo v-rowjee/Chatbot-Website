@@ -1,6 +1,5 @@
-import { Row, Col, Container, Card } from 'react-bootstrap';
+import { Row, Container } from 'react-bootstrap';
 import FaqCard from '../components/FaqCard';
-import bot_9 from "../assets/bots/9.png"
 
 export default function Downlaod() {
     return (

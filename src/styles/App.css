@@ -30,7 +30,7 @@ html{
 ::-webkit-scrollbar-track{
     background: var(--background);
 }
-.chat::-webkit-scrollbar-track{
+::-webkit-scrollbar-track{
     background: transparent;
 }
 
@@ -47,6 +47,10 @@ html{
 
 .section{
     height: calc(100vh - 81px);
+}
+
+.section-feedback{
+    height: calc(100vh - 81px - 63px);
 }
 
 .form-control:focus,
