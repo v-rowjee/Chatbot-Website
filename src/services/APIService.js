@@ -23,7 +23,7 @@ export default class APIService {
             .then(response => response.json())
             .catch(error => {
                 // console.error('Error fetching data from server:', error)
-                toast.error('An error occurred while sending message. Please try again later.', {
+                toast.error('Sorry, our chatbot is taking a short coffee break ☕️.  Thank you for your patience! 😄', {
                     position: "top-center",
                     autoClose: 5000,
                     hideProgressBar: true,
