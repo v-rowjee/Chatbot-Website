@@ -6,7 +6,7 @@ export default class APIService {
         var host = process.env.SERVER_URL
         // var host = "https://9c13e46fcc38-15980982744599944965.ngrok-free.app"
 
-        const sender = this.generateUniqueID();
+        const sender = this.getSenderID();
         body.sender = sender;
 
         return fetch(host + `/webhooks/rest/webhook`, {
@@ -23,7 +23,7 @@ export default class APIService {
             .then(response => response.json())
             .catch(error => {
                 // console.error('Error fetching data from server:', error)
-                toast.error('Sorry, our chatbot is taking a short coffee break ☕️.  Thank you for your patience! 😄', {
+                toast.error('Sorry, our chatbot is taking a short coffee break ☕️. Thank you for your patience! 😄', {
                     position: "top-center",
                     autoClose: 5000,
                     hideProgressBar: true,
@@ -35,7 +35,7 @@ export default class APIService {
                 })
             })
     }
-    static generateUniqueID() {
+    static getSenderID() {
         let senderId = localStorage.getItem('senderId');
         if (!senderId) {
             senderId = nanoid(36); // for a 36-character ID
