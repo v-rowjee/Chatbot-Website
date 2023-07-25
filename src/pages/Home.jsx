@@ -76,12 +76,14 @@ export default function Home() {
                         title="Facebook Messenger"
                         text="Chat with me on you favorite social media!"
                         link="https://www.facebook.com/cibochatbot"
+                        disabled={true}
                     />
                     <HomeCard
                         icon={<FaMobile size={30} />}
                         title="Android Mobile App"
                         text="Download now and chat with me on the go!"
                         link="/download"
+                        disabled={true}
                     />
                 </Row>
             </Container>
