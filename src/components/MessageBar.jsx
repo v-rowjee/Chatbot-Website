@@ -33,7 +33,7 @@ export default function MessageBar(props) {
 
     return (
         <>
-            <Row className='sticky-bottom justify-content-center w-100 text-center m-0 py-3'>
+            <Row className='sticky-bottom justify-content-center w-100 text-center m-0 py-2'>
                 <Col xs='12' lg='8' className='bg-neutral-color rounded p-3 shadow-lg'>
                     <Form onSubmit={handleSubmitForm}>
                         <Stack direction="horizontal" gap={3}>

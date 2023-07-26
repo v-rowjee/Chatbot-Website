@@ -41,7 +41,7 @@ html{
 }
 
 .chat{
-    max-height: calc(100vh - 81px - 87px);
+    max-height: calc(100vh - 81px - 58px);
     overflow-y: scroll;
 }
 
