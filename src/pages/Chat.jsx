@@ -53,7 +53,7 @@ export default function Chat(props) {
                                 ...prevMessagesList,
                                 { isSender: false, message: reply.text, buttons: reply.buttons }
                             ])
-                            delay = 50
+                            delay = 100
                         }
                         else if (reply.image) {
                             setMessagesList(prevMessagesList => [
@@ -67,7 +67,7 @@ export default function Chat(props) {
                                 ...prevMessagesList,
                                 { isSender: false, message: reply.text }
                             ])
-                            delay = 50
+                            delay = 100
                         }
 
                     } else if (reply.image) {
