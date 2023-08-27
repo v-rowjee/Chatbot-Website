@@ -3,8 +3,8 @@ import { nanoid } from 'nanoid';
 
 export default class APIService {
     static sendRequest(body) {
-        var host = process.env.SERVER_URL
-        // var host = "https://9c13e46fcc38-15980982744599944965.ngrok-free.app"
+        // var host = process.env.SERVER_URL
+        var host = "https://9c13e46fcc38-15980982744599944965.ngrok-free.app"
 
         const sender = this.getSenderID();
         body.sender = sender;
