@@ -40,7 +40,7 @@ export default function Chat(props) {
 
         APIService.sendRequest({ message })
             .then(response => {
-                let delay = 1000
+                let delay = 700
 
                 console.log(message)
 
@@ -53,7 +53,7 @@ export default function Chat(props) {
                                 ...prevMessagesList,
                                 { isSender: false, message: reply.text, buttons: reply.buttons }
                             ])
-                            delay = reply.text.length * 50
+                            delay = 50
                         }
                         else if (reply.image) {
                             setMessagesList(prevMessagesList => [
@@ -67,7 +67,7 @@ export default function Chat(props) {
                                 ...prevMessagesList,
                                 { isSender: false, message: reply.text }
                             ])
-                            delay = reply.text.length * 50
+                            delay = 50
                         }
 
                     } else if (reply.image) {
